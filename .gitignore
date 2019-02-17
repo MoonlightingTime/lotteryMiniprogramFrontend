@@ -1,0 +1,7 @@
+.idea/
+secret*
+
+__pycache__/
+migrations/
+db.sqlite3
+images/

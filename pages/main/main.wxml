@@ -1,0 +1,76 @@
+<!--pages/main/main.wxml-->
+<import src="./template/sweepstakesInfo.wxml" />
+
+<!-- <block wx:for="{{sweepstakes}}" wx:key="id">
+  <view bindtap='sweepstakesTap' id='sweepstakes_{{item.id}}'>
+    {{item.name}}
+  </view>
+</block> -->
+
+<view class="containers">
+  <dialog visible="{{dialogVisible}}" title="抽奖规则介绍" opacity="0.4" show-close="{{true}}"
+          show-footer="{{false}}" fullscreen="{{true}}" bindclose="handleCloseDialog" data-model="dialogVisible">
+    <view style='height:20vh;' class="rules-container">
+      <block wx:if="{{dialogState === 0}}">
+        <view class="weui-loadmore">
+          <view class="weui-loading"></view>
+          <view class="weui-loadmore__tips">正在查询所有抽奖规则</view>
+        </view>
+      </block>
+      <block wx:if="{{dialogState === 1}}">
+        <block wx:for="{{swpstkRules}}" wx:key="this">
+          <view class="weui-article__p">{{index + 1}}. {{item}}</view>
+        </block>
+      </block>
+      <block wx:if="{{dialogState === 2}}">
+        <view class="icon-box">
+          <icon type="warn" size="80"></icon>
+          <view class="icon-box__ctn">
+            <view class="icon-box__title">请求错误</view>
+            <view class="icon-box__desc">{{dialogErrMsg}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </dialog>
+</view>
+
+<view class="weui-panel__hd">所有的抽奖</view>
+<block wx:if="{{viewState === 0}}">
+  <view class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在查询所有抽奖信息</view>
+  </view>
+</block>
+<block wx:elif="{{viewState === 1}}">
+  <block wx:if="{{sweepstakes.length === 0}}">
+    <view class="icon-box">
+      <icon type="waiting" size="80"></icon>
+      <view class="icon-box__ctn">
+        <view class="icon-box__title">空空如也</view>
+        <view class="icon-box__desc">还没有可以参加的抽奖</view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{sweepstakes}}" wx:key="swpstkId">
+      <template is="sweepstakesInfo" data="{{...item}}" />
+    </block>
+  </block>
+</block>
+<block wx:elif="{{viewState === 2}}">
+  <view class="icon-box">
+    <icon type="warn" size="80"></icon>
+    <view class="icon-box__ctn">
+      <view class="icon-box__title">请求错误</view>
+      <view class="icon-box__desc">{{infoErrMsg}}</view>
+    </view>
+  </view>
+</block>
+
+<view class="weui-footer">
+  <view class="weui-footer__links">
+    <text bindtap="handleOpenDialog" class="weui-footer__link">查看规则</text>
+  </view>
+  <view class="weui-footer__text">develop @shesl-meow</view>
+</view>

@@ -1,0 +1,52 @@
+<!--pages/result/result.wxml-->
+<import src="./template/sweepstakesResult.wxml" />
+
+<view class="weui-panel">
+  <view class="weui-panel__hd">参与的抽奖</view>
+  <block wx:if="{{viewState === 0}}">
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在查询参与抽奖情况</view>
+    </view>
+  </block>
+  <block wx:elif="{{viewState === 1 || viewState === 2}}">
+    <block wx:if="{{participatedSwpstks.length === 0}}">
+      <view class="icon-box">
+        <icon type="waiting" size="80"></icon>
+        <view class="icon-box__ctn">
+          <view class="icon-box__title">空空如也</view>
+          <view class="icon-box__desc">您还没有参加任何抽奖</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <block wx:for="{{participatedSwpstks}}" wx:key="swpstkId">
+              <template is="sweepstakesResult" data="{{...item}}"></template>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-btn-area">
+      <block wx:if="{{viewState === 1}}">
+        <button class="weui-btn" bindtap="refreshContent">刷新</button>
+      </block>
+      <block wx:elif="{{viewState === 2}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在刷新</view>
+      </block>
+    </view>
+  </block>
+  <block wx:elif="{{viewState === 3}}">
+    <view class="icon-box">
+      <icon type="warn" size="80"></icon>
+      <view class="icon-box__ctn">
+        <view class="icon-box__title">请求错误</view>
+        <view class="icon-box__desc">{{errMsg}}</view>
+      </view>
+    </view>
+  </block>
+</view>

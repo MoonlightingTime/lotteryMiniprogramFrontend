@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/profile/profile",
+    "pages/main/main",
+    "pages/result/result",
+    "pages/main/participate"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ea5038",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#d8e0c9",
+    "selectedColor": "#f0aa31",
+    "backgroundColor": "#ea5037",
+    "list": [
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "信息",
+        "iconPath": "pages/profile/profile-default.png",
+        "selectedIconPath": "pages/profile/profile-selected.png"
+      },
+      {
+        "pagePath": "pages/main/main",
+        "text": "抽奖",
+        "iconPath": "pages/main/main-default.png",
+        "selectedIconPath": "pages/main/main-selected.png"
+      },
+      {
+        "pagePath": "pages/result/result",
+        "text": "结果",
+        "iconPath": "pages/result/result-default.png",
+        "selectedIconPath": "pages/result/result-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

@@ -1,0 +1,79 @@
+<template name="sweepstakesInfo">
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">最高奖品价值</view>
+        <view class="weui-form-preview__value_in-hd">{{maxPrizeValue}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-cell">
+        <block wx:if="{{firstPrize.loadImage}}">
+          <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="weui-cell__hd">
+            <image src="{{firstPrize.demoImage}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
+          </view>
+        </block>
+        <view class="weui-cell__bd">一等奖:</view>
+        <view class="weui-cell__ft">{{firstPrize.prizeName}}</view>
+      </view>
+      <view class="weui-cell">
+        <block wx:if="{{secondPrize.loadImage}}">
+          <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="weui-cell__hd">
+            <image src="{{secondPrize.demoImage}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
+          </view>
+        </block>
+        <view class="weui-cell__bd">二等奖:</view>
+        <view class="weui-cell__ft">{{secondPrize.prizeName}}</view>
+      </view>
+      <view class="weui-cell">
+        <block wx:if="{{thirdPrize.loadImage}}">
+          <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="weui-cell__hd">
+            <image src="{{thirdPrize.demoImage}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
+          </view>
+        </block>
+        <view class="weui-cell__bd">三等奖:</view>
+        <view class="weui-cell__ft">{{thirdPrize.prizeName}}</view>
+      </view>
+      <view class="weui-cell">
+        <block wx:if="{{luckyPrize.loadImage}}">
+          <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="weui-cell__hd">
+            <image src="{{luckyPrize.demoImage}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
+          </view>
+        </block>
+        <view class="weui-cell__bd">幸运奖:</view>
+        <view class="weui-cell__ft">{{luckyPrize.prizeName}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">活动名称:</view>
+        <view class="weui-cell__ft">{{swpstkName}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">开奖时间:</view>
+        <view class="weui-cell__ft">{{lotteryTime}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__ft">
+      <navigator url="/pages/main/participate?swpstkId={{swpstkId}}" class="weui-form-preview__btn weui-form-preview__btn_primary participate_btn" hover-class="weui-form-preview__btn_active participate_btn_hover">参与抽奖</navigator>
+    </view>
+  </view>
+</template>

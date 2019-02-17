@@ -1,0 +1,6 @@
+/* pages/main/main.wxss */
+@import "./template/sweepstakesInfo.wxss";
+
+.rules-container{
+    margin-top: 50rpx;
+}

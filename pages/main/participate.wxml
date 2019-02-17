@@ -1,0 +1,59 @@
+<!--pages/main/participate.wxml-->
+<!--<text>pages/main/participate.wxml</text>-->
+<block wx:if="{{viewState === 0}}">
+    <view class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在查询参与抽奖情况</view>
+    </view>
+</block>
+<block wx:elif="{{viewState === 1}}">
+    <view class="icon-box">
+        <icon type="info" size="80"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__title">提示</view>
+            <view class="icon-box__desc">您已经参与过此次抽奖</view>
+        </view>
+    </view>
+</block>
+<block wx:elif="{{viewState === 2 || viewState === 4}}">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手机号</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" bindinput="bindPhoneNumber"
+                       placeholder="{{phoneNumber?phoneNumber:'请输入手机号'}}" />
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells__tips">请输入手机号，以便中奖后与您取得联系</view>
+    <view class="weui-btn-area">
+        <block wx:if="{{viewState === 2}}">
+            <button class="weui-btn" type="primary" bindtap="submitPhoneNumber">提交</button>
+        </block>
+        <block wx:elif="{{viewState === 4}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在提交参与信息</view>
+        </block>
+    </view>
+</block>
+<block wx:elif="{{viewState === 3}}">
+    <view class="icon-box">
+        <icon type="warn" size="80"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__title">网络请求错误</view>
+            <view class="icon-box__desc">{{errorMsg}}</view>
+        </view>
+    </view>
+</block>
+<block wx:if="{{viewState === 5}}">
+    <view class="icon-box">
+        <icon type="success" size="80"></icon>
+        <view class="icon-box__ctn">
+            <view class="icon-box__title">成功</view>
+            <view class="icon-box__desc">您已成功参与此次抽奖</view>
+            <view class="weui-cells__tips">两秒后返回主页面，若为返回请自行点击</view>
+        </view>
+    </view>
+</block>

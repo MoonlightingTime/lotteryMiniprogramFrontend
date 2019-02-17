@@ -1,0 +1,24 @@
+.weui-form-preview{
+    margin-bottom: 100rpx;
+}
+.weui-cells{
+  margin-top: 0;
+}
+.weui-form-preview__bd{
+  padding: 0;
+}
+.participate_btn{
+  color: #112238;
+}
+.participate_btn_hover{
+  background-color: #d8e0c9;
+}
+.merchandise-image{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px
+}
+.weui-cell__bd{
+  margin-right: 20rpx;
+  font-weight: bold;
+}

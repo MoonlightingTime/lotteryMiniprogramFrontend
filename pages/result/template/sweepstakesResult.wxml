@@ -1,0 +1,19 @@
+<template name="sweepstakesResult">
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd"><image src="./status/{{swpstkState}}.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+    <view class="weui-cell__bd weui-cell_primary">
+      <view>{{swpstkName}}</view>
+    </view>
+    <view class="weui-cell_primary">
+      <view wx:if="{{swpstkState == 'notTime'}}" style="color:#d8e0c9">请稍等，尚未开奖</view>
+      <view wx:elif="{{swpstkState == 'hasWon'}}" style="color:#ea5037">恭喜您，您已中
+        <block wx:if="{{specificResult === 0}}">一等奖</block>
+        <block wx:if="{{specificResult === 1}}">二等奖</block>
+        <block wx:if="{{specificResult === 2}}">三等奖</block>
+        <block wx:if="{{specificResult === 3}}">幸运奖</block>
+      </view>
+      <view wx:elif="{{swpstkState == 'notWon'}}" style="color:#112338">很遗憾，您未中奖</view>
+    </view>
+    <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+  </navigator>
+</template>
