@@ -1,5 +1,13 @@
 # REDME
 
+## DEMO
+
+- 前端项目地址：[本项目](https://github.com/shesl-meow/lotteryMiniprogramFrontend)
+
+- 后端项目地址：[后端项目](https://github.com/shesl-meow/lotteryMiniprogramBackend)
+
+- 项目演示视频：[bilibili](https://www.bilibili.com/video/av42743162)
+
 ## 文件架构
 
 1. `pages/profile/profile`：个人信息页面，第一个 `tab`
